@@ -1,15 +1,14 @@
-class Contact{
-    constructor(firstName, lastName, address, city, state, zip, phoneNo,email){
+class Contacts {
+    constructor(firstName, lastName, address, city, state, zip, phoneNumber, email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.city = city;
         this.state = state;
         this.zip = zip;
-        this.phoneNo = phoneNo;
+        this.phoneNumber = phoneNumber;
         this.email = email;
     }
-
     set firstName(firstName) {
         let pattern = RegExp('^[A-Z]{1}[a-z]{2,}$');
         if(pattern.test(firstName)) {
@@ -99,25 +98,26 @@ class Contact{
     get email() {
         return this._email;
     }
-
-    toString(){
-        return "First Name= "+ this.firstName
-            + " Last Name= "+ this.lastName
-            + " Address= "+ this.address
-            + " City= "+ this.city
-            + " State= "+ this.state
-            + " Zip= "+ this.zip
-            + " Phone No= "+ this.phoneNo
-            + " Email = "+ this.email;
+    toString() {
+        return "First Name= " + this.firstName
+            + " Last Name= " + this.lastName
+            + " Address= " + this.address
+            + " City= " + this.city
+            + " State= " + this.state
+            + " Zip= " + this.zip
+            + " Phone Number = " + this.phoneNumber
+            + " Email = " + this.email;
     }
 }
+// UC1:Adding the contact in the address Book
+   // let contact1 = new Contacts("Sahil", "Khan", "Ambazari", "Nagpur", "MHGJ", "447141", "987962080", "sahil@gmail.com");
+    //console.log(contact1.toString());
 
-try{
-    let contact1 = new Contact("Saurav","Raj","MCHS","Bangalore","Karnataka","560076","9337564986","saurav.raj4986@gmail.com");
-    console.log(contact1.toString());
-
-} catch(e) {
-    console.log(e);
-}
-
-
+    //UC3: Creating array of contacts
+    let arr=new Array(new Contacts("Sahil", "Khan", "Ambazari", "Nagpur", "MHGJ", "447141", "987962080", "sahil@gmail.com"), 
+    new Contacts("Saurav", "Abc", "Colony", "Banglore", "UPKJ", "447554", "887962080", "saurav@gmail.com"),
+    new Contacts("Ankit", "Xyz", "Patna", "Delhi", "WBDL", "541441", "123962080", "ankit@gmail.com"));
+   
+    for(let i=0; i<arr.length; i++){
+        console.log(arr[i].toString());
+    }
